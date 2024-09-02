@@ -37,6 +37,46 @@ public class Dev {
                 .sum();*/
     }
 
+    public int mostrarLvl() {
+        int levelAtual = 0;
+        if (calcularTotalXp() <= 10) {
+            levelAtual = 0;
+        }
+        if (calcularTotalXp() > 40) {
+            levelAtual = 1;
+        }
+        if (calcularTotalXp() > 80) {
+            levelAtual = 2;
+        }
+        if (calcularTotalXp() > 160) {
+            levelAtual = 3;
+        }
+        return levelAtual;
+    }
+
+    public int progressaolvl() {
+        int restante = 0;
+        if (mostrarLvl() == 0) {
+            restante = 10;
+            restante -= calcularTotalXp(); 
+            System.out.println("Você precisa de " + restante + " para o chegar ao próximo lvl");
+        }
+        if (mostrarLvl() == 1) {
+            restante = 40;
+            restante -= calcularTotalXp();
+            System.out.println("Você precisa de " + restante + " para o chegar ao próximo lvl");
+        }
+        if (mostrarLvl() == 2) {
+            restante = 160;
+            restante -= calcularTotalXp();
+            System.out.println("Você precisa de " + restante + " para o chegar ao próximo lvl");
+        }
+        if (mostrarLvl() == 3) {
+            System.out.println("Você está no lvl máximo, parabéns!");
+        }
+        return restante;
+    }
+
 
     public String getNome() {
         return nome;
